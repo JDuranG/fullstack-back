@@ -1,11 +1,17 @@
-from persistencia import guardar_pedido
+"""
+Pruebas Persistencia
+"""
+import persistencia
 
-with open("pedidos.txt", "w", encoding="utf-8") as file:
-    file.write("")
-    file.close()
-
-pedidos = [{"nombre":"Juancho", "apellidos":"garcia"},{"nombre":"Antonio", "apellidos":"perez sanchez"},{"nombre":"Javier", "apellidos":"Duran"},{"nombre":"Monica", "apellidos":"parker"},]
-for persona in pedidos:
-    nombre = persona['nombre']
-    apellidos = persona['apellidos']
-    guardar_pedido(nombre, apellidos)
+def test_guardar_pedido():
+"""
+Prueba general
+"""
+    with open("pedidos.txt", "w+", encoding="utf-8") as file:
+        persistencia.guardar_pedido("Pedro", "Gil de Diego")
+        persistencia.guardar_pedido("Michael", "Jordan")
+        firstline = file.readline()
+        secondline = file.readline()
+        file.close()
+    assert firstline == "-Pedro Gil de Diego\n"
+    assert secondline == "-Michael Jordan\n
