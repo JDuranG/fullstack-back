@@ -24,10 +24,11 @@ def checksize():
     """
     Comprueba disponibilidad de un tamaño de pizza.
     """
-    tamaño = request.form.get("size")
-    print(tamaño)
+    size = request.form.get("size")
+    print(size)
     mensaje = "Disponible"
-    if tamaño == "S":
+    if size == "S":
         mensaje = "No disponible"
     print(mensaje)
     return Response(mensaje, 200, {'Access-Control-Allow-Origin': '*'})
+    
