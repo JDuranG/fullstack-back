@@ -15,3 +15,4 @@ Prueba general
         file.close()
     assert firstline == "-Pedro Gil de Diego\n"
     assert secondline == "-Michael Jordan\n
+    
